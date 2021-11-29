@@ -87,8 +87,8 @@ img.socials:hover {
 
 #aktualnosci { animation: animacja 5s linear infinite alternate none; }
 @keyframes animacja {
-	0% { background-image: url("images/a.jpg"); }
-   100% { background-image: url("images/b.png"); }
+	0% { background-image: url("a.jpg"); }
+   100% { background-image: url("b.png"); }
    
 }
 #stopka {
@@ -151,8 +151,8 @@ a.linksphoneelement{
 }
 #aktualnosci { animation: animacja 5s linear infinite alternate none; }
 @keyframes animacja {
-	0% { background-image: url("images/ar.jpg"); }
-   100% { background-image: url("images/br.jpg"); }
+	0% { background-image: url("ar.jpg"); }
+   100% { background-image: url("br.jpg"); }
    
 }
 
