@@ -24,7 +24,7 @@
   }
 
   changeLanguage() {
-    var i18n = i18n.js;
+    var i18n = translate;
     $(".language select").change(function() {
       var lang = $(this).val();
       $("#linkstrona").text(i18n[lang].linkstrona, 500);
