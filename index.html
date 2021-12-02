@@ -27,12 +27,12 @@
     var i18n = translate;
     $(".language select").change(function() {
       var lang = $(this).val();
-      $("#linkstrona").text(i18n[lang].linkstrona, 500);
-      $("#linkfilmy").text(i18n[lang].linkfilmy, 500);
-	  $("#linkprojekty").text(i18n[lang].linkprojekty, 500);
-	  $("#kodertekst").text(i18n[lang].kodertekst, 500);
-	  $("#techtekst").text(i18n[lang].techtekst, 500);
-	  $("#rights").text(i18n[lang].rights, 500);
+      $("#linkstrona").text(i18n[lang].linkstrona);
+      $("#linkfilmy").text(i18n[lang].linkfilmy);
+	  $("#linkprojekty").text(i18n[lang].linkprojekty);
+	  $("#kodertekst").text(i18n[lang].kodertekst);
+	  $("#techtekst").text(i18n[lang].techtekst);
+	  $("#rights").text(i18n[lang].rights);
 	
     });
   }
