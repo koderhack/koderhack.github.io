@@ -17,30 +17,7 @@
         <meta property="og:site_name" content="Koder in Youtube">
 	</head>
 	<body>
-<script>
-	class translator {
-  constructor() {
-    this.changeLanguage();
-  }
 
-  changeLanguage() {
-    var i18n = translate;
-    $(".language select").change(function() {
-      var lang = $(this).val();
-      $("#linkstrona").text(i18n[lang].linkstrona);
-      $("#linkfilmy").text(i18n[lang].linkfilmy);
-	  $("#linkprojekty").text(i18n[lang].linkprojekty);
-	  $("#kodertekst").text(i18n[lang].kodertekst);
-	  $("#techtekst").text(i18n[lang].techtekst);
-	  $("#rights").text(i18n[lang].rights);
-	
-    });
-  }
-}
-
-new translator()
-
-	</script>
 
 	
 <div id=page>
@@ -68,6 +45,30 @@ new translator()
 	<option value="en">EN</option>
 	
   </select>
+  <script>
+	class translator {
+  constructor() {
+    this.changeLanguage();
+  }
+
+  changeLanguage() {
+    var i18n = translate;
+    $(".language select").change(function() {
+      var lang = $(this).val();
+      $("#linkstrona").text(i18n[lang].linkstrona);
+      $("#linkfilmy").text(i18n[lang].linkfilmy);
+	  $("#linkprojekty").text(i18n[lang].linkprojekty);
+	  $("#kodertekst").text(i18n[lang].kodertekst);
+	  $("#techtekst").text(i18n[lang].techtekst);
+	  $("#rights").text(i18n[lang].rights);
+	
+    });
+  }
+}
+
+new translator()
+
+	</script>
 </div>
 <div id=aktualnosci >
   </div>
