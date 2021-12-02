@@ -13,11 +13,34 @@
  <link rel="icon" href="favicon.ico">
         <meta property="og:title" content="Koder in Youtube">
         <meta property="og:description" content="Strona internetowa o mnie">
-        <meta property=”og:locale” content=”pl_PL” />
+        
         <meta property="og:site_name" content="Koder in Youtube">
 	</head>
 	<body>
+<script>
+	class translator {
+  constructor() {
+    this.changeLanguage();
+  }
 
+  changeLanguage() {
+    var i18n = translate;
+    $(".language select").change(function() {
+      var lang = $(this).val();
+      $("#linkstrona").text(i18n[lang].linkstrona, 500);
+      $("#linkfilmy").text(i18n[lang].linkfilmy, 500);
+	  $("#linkprojekty").text(i18n[lang].linkprojekty, 500);
+	  $("#kodertekst").text(i18n[lang].kodertekst, 500);
+	  $("#techtekst").text(i18n[lang].techtekst, 500);
+	  $("#rights").text(i18n[lang].rights, 500);
+	
+    });
+  }
+}
+
+new translator()
+
+	</script>
 
 	
 <div id=page>
@@ -28,19 +51,23 @@
 </video> 
 <div id=links style="display:flex">
 	
-		<a href=index.html class=links>Strona główna </a> 
-	    <a href="https://www.youtube.com/channel/UC37t0k39bcWRzAreu7bAkSQ/videos" class=links>Filmy </a>
-		<a href="projects.html" class=links>Projekty </a>
+		<a href=index.html class=links><p id=linkstrona>Strona główna</p> </a> 
+	    <a href="https://www.youtube.com/channel/UC37t0k39bcWRzAreu7bAkSQ/videos" class=links><p id=linkfilmy>Filmy</p> </a>
+		<a href="projects.html" class=links><p id=linkprojekty>Projekty</p> </a>
 </div>
 
 <div id=linksphone class=linksphone>
 
-		<a href=index.html class=linksphoneelement>Strona główna</a> 
+		<a href=index.html class=linksphoneelement><p id=linkstrona>Strona główna</p> </a> 
 
-		<a href="https://www.youtube.com/channel/UC37t0k39bcWRzAreu7bAkSQ/videos" class=linksphoneelement>Filmy</a>
-		<a href="projects.html" class=linksphoneelement>Projekty</a>
+		<a href="https://www.youtube.com/channel/UC37t0k39bcWRzAreu7bAkSQ/videos" class=linksphoneelement><p id=linkfilmy>Filmy</p> </a>
+		<a href="projects.html" class=linksphoneelement><p id=linkprojekty>Projekty</p></a>
 </div>
-
+<select>
+	<option value="pl">PL</option>
+	<option value="en">EN</option>
+	
+  </select>
 </div>
 <div id=aktualnosci >
   </div>
@@ -48,10 +75,10 @@
 <video class="logo" autoplay loop muted>
 	<source src="video.mp4" type="video/mp4">
 </video>
-Jestem Koder.
-Lubię programować i prowadzę kanał na YouTube. &nbsp
+<p id=kodertekst>Jestem Koder.
+Lubię programować i prowadzę kanał na YouTube. &nbsp</p>
 <div id=technologie>
-Technologie w których programuje:<br>
+<p id=techtekst>Technologie w których programuje:<br></p>
 <a href="https://pl.wikipedia.org/wiki/HTML" class="socials"><img src=html.png ></a>
 <a href="https://pl.wikipedia.org/wiki/Kaskadowe_arkusze_styl%C3%B3w" class="socials" ><img src=CSS.png ></a>
 <a href="https://pl.wikipedia.org/wiki/JavaScript" class="socials"><img src=JS.png ></a>
@@ -61,8 +88,8 @@ Technologie w których programuje:<br>
 </div>
 <div id=stopka>
 </br>
-Wszelkie prawa zastrzeżone © Koder 2021</br>
-Email:<a href="mailto:koder1@interia.pl">koder1@interia.pl</a></br>
+<p id=rights>Wszelkie prawa zastrzeżone © Koder 2021</br></p>
+<p id=email>Email:<a href="mailto:koder1@interia.pl">koder1@interia.pl</a></br></p>
 Social Media:
 <a href="https://www.youtube.com/channel/UC37t0k39bcWRzAreu7bAkSQ" class="socials"><img src=yt.png class="socials"></a>
 <a href="https://discord.gg/twrMS8nUTZ" class="socials"><img src=discord.png class="socials"></a>
