@@ -88,6 +88,7 @@ img.socials:hover {
 #aktualnosci { animation: animacja 5s linear infinite alternate none; }
 @keyframes animacja {
 	0% { background-image: url("a.jpg"); }
+	50% { background-image: url("c.jpg");}
    100% { background-image: url("b.png"); }
    
 }
@@ -152,6 +153,7 @@ a.linksphoneelement{
 #aktualnosci { animation: animacja 5s linear infinite alternate none; }
 @keyframes animacja {
 	0% { background-image: url("ar.jpg"); }
+	
    100% { background-image: url("br.jpg"); }
    
 }
