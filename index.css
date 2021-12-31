@@ -88,8 +88,8 @@ img.socials:hover {
 #aktualnosci { animation: animacja 5s linear infinite alternate none; }
 @keyframes animacja {
 	0% { background-image: url("a.jpg"); }
-	50% { background-image: url("c.jpg");}
-   100% { background-image: url("b.png"); }
+	100% { background-image: url("b.png");}
+   
    
 }
 #stopka {
