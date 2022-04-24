@@ -87,7 +87,7 @@ img.socials:hover {
 
 #aktualnosci { animation: animacja 5s linear infinite alternate none; }
 @keyframes animacja {
-	0% { background-image: url("a.jpg"); }
+	0% { background-image: url("a.png"); }
 	100% { background-image: url("b.png");}
    
    
