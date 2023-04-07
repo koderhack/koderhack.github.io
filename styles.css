@@ -170,16 +170,21 @@ color: #fff;
     font-size:75px;
     }
     .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #fff;
-    color: #333;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: all 0.2s ease-in-out;
-    }
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #fff;
+        color: #333;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        transition: all 0.2s ease-in-out;
+        display: block;
+        margin: 0 auto;
+        font-size:100px;
+        margin:20px;
+        }
+
     /* Change width and margin of game cards */
     .game-card {
         width: 100%;
