@@ -102,55 +102,66 @@ color: #222;
 }
 
 section.latest-games {
-display: flex;
-justify-content: space-between;
-flex-wrap: wrap;
-margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
 }
-
+section.other-projects {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
 .game-card {
-width: calc(33.33% - 20px);
-background-color: #333;
-padding: 20px;
-border-radius: 5px;
-margin-bottom: 20px;
+    width: calc(50% - 20px);
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 0 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .game-card img {
-max-width: 100%;
-border-radius: 5px;
-margin-bottom: 10px;
+    width: 100%; /* Obrazy gier mają stałą szerokość, aby zachować spójny wygląd */
+    max-height: 200px; /* Ustalona maksymalna wysokość obrazka */
+    object-fit: cover; /* Dostosowanie obrazka do kontenera */
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .game-card h3 {
-margin: 0;
-font-size: 24px;
-font-weight: 700;
-margin-bottom: 10px;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
 .game-card p {
-font-size: 16px;
-font-weight: 400;
-margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
 }
 
 .game-card .btn {
-display: inline-block;
-padding: 10px 20px;
-background-color: #fff;
-color: #333;
-border-radius: 5px;
-text-decoration: none;
-font-size: 16px;
-font-weight: 500;
-transition: all 0.2s ease-in-out;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
 }
 
 .game-card .btn:hover {
-background-color: #ccc;
-color: #222;
+    background-color: #ccc;
+    color: #222;
 }
+
 
 footer {
 background-color: #333;
