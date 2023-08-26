@@ -16,20 +16,23 @@
 
 
   <script>
-  function toggleMenu() {
-  var menu = document.getElementById("menu");
-  menu.classList.toggle("show");
+var body = document.getElementById("body");
   
+  function toggleMenu() {
+var menu = document.getElementById("menu");
+menu.classList.toggle("show");
 
+
+}
 window.addEventListener("scroll", function() {
-      closeMenu();
-    });
+   closeMenu();
+ });
 
-    function closeMenu() {
-      menu.classList.remove("show");
-    
-      body.classList.remove("menu-open");
-    }}
+ function closeMenu() {
+   menu.classList.remove("show");
+
+   body.classList.remove("menu-open");
+ }
   </script>
   
 </head>
