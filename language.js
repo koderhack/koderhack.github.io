@@ -64,6 +64,7 @@ function changeLanguage(language) {
       grafics:'Graphics software: Pixelorama , Canva ',
       sound:'Sound design software: Audacity, BoscaCeoil',
       AI:'AI systems: Chat GPT, Dalle 2, Midjourney, Bing AI',
+      otherprojects: 'Other projects:',
       socials:'Socials:',
       yt:'Click to go to the Youtube📷',
       tk:'Click to go to Tiktok📱',
@@ -107,6 +108,7 @@ function changeLanguage(language) {
       tk:'Kliknij, aby przejść do Tiktoka📱',
       tw:'Kilknij, aby przejść do X',
       dc:'Kilknij, aby przejść do Discorda💻',
+      otherprojects:'Inne projekty',
       contact1:'Kontakt:',
       linktree:'Wszystkie moje inne media społecznościowe',
     }
