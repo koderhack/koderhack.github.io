@@ -16,80 +16,50 @@
 
 
   <script>
-    function toggleMenu() {
-      var menu = document.getElementById("menu");
-      menu.classList.toggle("show");
-    }
+  function toggleMenu() {
+  var menu = document.getElementById("menu");
+  menu.classList.toggle("show");
+  
+
+window.addEventListener("scroll", function() {
+      closeMenu();
+    });
+
+    function closeMenu() {
+      menu.classList.remove("show");
+    
+      body.classList.remove("menu-open");
+    }}
   </script>
-  <style>
-    .menu-btn {
-      display: block;
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-      cursor: pointer;
-      font-size: 30px;
-      z-index:3;
-    }
-    .menu-btn:hover {
-      background-color: #444;
-    }
-    #menu {
-      display: none;
-      position: absolute;
-      top: 50px;
-      left: 0;
-      width: 100%;
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-    }
-    #menu.show {
-      display: block;
-      position: absolute;
-      top: 6%;
-      
-    }
-    #menu ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    #menu li {
-      padding: 5px;
-    }
-    #menu li a {
-      color: #fff;
-    }
-   
-  </style>
+  
 </head>
 <body>
   <header>
     <h1><a href="index.html">Koder</a></h1>
-    <a class="menu-btn" onclick="toggleMenu()">Menu</a>
+    <button class="menu-btn" onclick="toggleMenu()">Menu</button>
     <nav id="menu">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="https://koder123456.itch.io/">Games</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html" data-translate="home">Home</a></li>
+        <li><a href="about.html" data-translate="about">About</a></li>
+        <li><a href="https://koder123456.itch.io/" data-translate="games">Games</a></li>
+        <li><a href="contact.html" data-translate="contact">Contact</a></li>
+        <li><button onclick="changeLanguage('en')">English</button></li>
+        <li><button onclick="changeLanguage('pl')">Polski</button></li>
       </ul>
     </nav>
   </header>
   <main>
     <section class="socials">
-      <h2>Socials:</h2>
-      <a href="https://www.youtube.com/channel/UC37t0k39bcWRzAreu7bAkSQ" class="btn">Click to go to the Youtube📷</a>
-      <a href="https://vm.tiktok.com/ZMdopTWpS/" class="btn">Click to go to Tiktok📱</a>
-      <a href="https://twitter.com/Koder123456789" class="btn">Click to go to Twitter🐦</a>
-      <a href="https://discord.com/invite/twrMS8nUTZ" class="btn" > Click to go to Discord💻</a>
-       
+      <h2 data-translate="socials">Socials:</h2>
+      <a href="https://www.youtube.com/channel/UC37t0k39bcWRzAreu7bAkSQ" class="btn" data-translate="yt">Click to go to the Youtube📷</a>
+      <a href="https://vm.tiktok.com/ZMdopTWpS/" class="btn" data-translate="tk">Click to go to Tiktok📱</a>
+      <a href="https://twitter.com/Koder123456789" class="btn" data-translate="tw">Click to go to X</a>
+      <a href="https://discord.com/invite/twrMS8nUTZ" class="btn" data-translate="dc" > Click to go to Discord💻</a>
+      <a href="https://linktr.ee/koderinyoutube" class="btn" data-translate="linktree" > All my other socials</a>
     </section>
 
     <section class="private-contact">
-      <h2>Contact:</h2>
+      <h2 data-translate="contact1">Contact:</h2>
     <p>Discord: Koder123456#0398</p>
     <p>Email: koder1@interia.pl</p>
        
@@ -97,8 +67,8 @@
 
   </main>
   <footer>
-    <p>&copy; 2023 Koder. All rights reserved</p>
+    <p data-translate="copyright">&copy; 2023 Koder. All rights reserved</p>
   </footer>
-  
+  <script src="language.js"></script>
 </body>
 </html>
