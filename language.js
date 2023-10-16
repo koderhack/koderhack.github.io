@@ -90,6 +90,7 @@ function changeLanguage(language) {
       game6desc: 'Zanurz się w brudnym oceanie i oczyść go! Uważaj na tlen i inne niebezpieczeństwa!',
       game7desc: 'Inne gry znajdziesz na moim itch.io',
      game8desc: "Przetrwaj w świecie Klausa Schwaba i zmniejsz swój ślad węglowy!",
+    
       game7: 'Inne gry',
       project1title: 'Robot Esp8266 WiFi',
       project1desc: 'Prosty robot wykonany z modułu esp8266 i L298N',
