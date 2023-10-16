@@ -49,6 +49,7 @@ function changeLanguage(language) {
       game5desc: 'You are a superhero and you kill people instead of rescuing them',
       game6desc: 'Dive into a dirty ocean and clean it! Be aware of oxygen and other dangers!',
       game7desc: 'You can find other games on my itch.io',
+      game8desc: "Survive in Klaus Schwab's world and reduce your carbon footprint!",
       game7: 'Other Games',
       project1title: 'Esp8266 WiFi robot',
       project1desc: 'A simple robot made with the esp8266 and L298N module',
