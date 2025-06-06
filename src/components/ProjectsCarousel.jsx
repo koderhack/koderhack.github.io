@@ -53,13 +53,13 @@ img:apertoImg,
     desc: "Wilcza Wataha – wydarzenie sportowo-integracyjne, w którym skanujesz kody QR i bierzesz udział w konkurencjach, zdobywając punkty dla swojej drużyny.",
     url: "https://wataha.fun/",
     img: watahaImg,
-    stack: ["React", "Tailwind"]
+    stack: ["React", "Tailwind", "node.js"]
   },
   {
     name: "GeoBlast",
     desc: "Geo-Blast: Space Shooter – dynamiczna gra kosmiczna: ulepszaj statek, pokonuj wrogów, zbieraj monety i podbijaj galaktyki! 🚀🌌",
     url: "https://play.google.com/store/apps/details?id=com.KoderTeam.GeoBlast",
-    stack: ["React", "Three.js", "Vite"],
+    stack: ["Unity", "C#"],
     img:geoblastImg,
   },
   {
