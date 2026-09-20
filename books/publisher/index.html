@@ -284,6 +284,7 @@ label{font-size:12px;font-weight:600;color:var(--muted);display:block;margin:10p
 
 <script>
 const API = 'http://frog02.mikr.us:32287'; // backend mówi tylko HTTP ( brak TLS na :32287 ) — tak jak live v1
+const PRIVY_DEFAULT_APP_ID = 'cmu9win8e01oo0ckzvcz6j0qg'; // bookprof (publiczne App ID — safe w frontendzie)
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const VERIFIED = ['Reading Verified','Comprehension Verified','verified'];
@@ -333,7 +334,7 @@ $('btnPhantom').addEventListener('click', async ()=>{
 /* Privy via ESM (React SDK, solana-only) — ładuje się tylko z App ID */
 let privyMounted = false;
 async function mountPrivy(){
-  const appId = (localStorage.getItem('readproof_privy_app_id')||'').trim() || $('privyAppId').value.trim();
+  const appId = (localStorage.getItem('readproof_privy_app_id')||'').trim() || $('privyAppId').value.trim() || PRIVY_DEFAULT_APP_ID;
   if(!appId || privyMounted) return;
   privyMounted = true;
   $('privyRoot').innerHTML = '<span class="muted" style="font-size:12px">Ładowanie Privy…</span>';
@@ -378,7 +379,7 @@ async function mountPrivy(){
   }
 }
 $('btnPrivy').addEventListener('click', ()=>{
-  const appId = (localStorage.getItem('readproof_privy_app_id')||'').trim() || $('privyAppId').value.trim();
+  const appId = (localStorage.getItem('readproof_privy_app_id')||'').trim() || $('privyAppId').value.trim() || PRIVY_DEFAULT_APP_ID;
   if(!appId){ $('registerCard').scrollIntoView({behavior:'smooth'}); $('privyAppId').focus(); alert('Wklej najpierw Privy App ID (dashboard.privy.io). Bez niego użyj Phantom / ręcznego adresu.'); return; }
   localStorage.setItem('readproof_privy_app_id', appId);
   mountPrivy();
@@ -446,7 +447,7 @@ $('btnBack').addEventListener('click', () => {
 });
 
 async function init(){
-  $('privyAppId').value = localStorage.getItem('readproof_privy_app_id')||'';
+  $('privyAppId').value = localStorage.getItem('readproof_privy_app_id') || PRIVY_DEFAULT_APP_ID;
   $('manualWallet').value = getWallet();
   paintAuth();
   try { await fetch(API + '/health').then(r=>r.json()); $('apiStatus').textContent = 'API: online'; }
@@ -472,7 +473,7 @@ async function init(){
   }catch(e){ $('booksList').innerHTML = '<div class="empty">Książki chwilowo offline — backend: frog02.mikr.us:32287</div>'; }
   const q = new URLSearchParams(location.search).get('campaign');
   if(q) openDetail(q);
-  if((localStorage.getItem('readproof_privy_app_id')||'').trim()) mountPrivy();
+  mountPrivy(); // domyślne App ID (bookprof) — login od razu gotowy
 }
 
 async function openDetail(id){
