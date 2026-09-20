@@ -341,10 +341,10 @@ async function mountPrivy(){
   const t = (p, ms, label) => Promise.race([p, new Promise((_,rej)=>setTimeout(()=>rej(new Error('timeout: ' + label)), ms))]);
   try{
     const [{default:React},{createRoot},privy,privySol] = await Promise.all([
-      t(import('https://esm.sh/react@18.3.1'), 25000, 'react'),
-      t(import('https://esm.sh/react-dom@18.3.1/client'), 25000, 'react-dom'),
-      t(import('https://esm.sh/@privy-io/react-auth@3.16.0'), 45000, 'privy'),
-      t(import('https://esm.sh/@privy-io/react-auth@3.16.0/solana'), 45000, 'privy-solana')
+      t(import('https://esm.sh/react@18.3.1?deps=react@18.3.1,react-dom@18.3.1'), 25000, 'react'),
+      t(import('https://esm.sh/react-dom@18.3.1/client?deps=react@18.3.1,react-dom@18.3.1'), 25000, 'react-dom'),
+      t(import('https://esm.sh/@privy-io/react-auth@3.16.0?deps=react@18.3.1,react-dom@18.3.1'), 60000, 'privy'),
+      t(import('https://esm.sh/@privy-io/react-auth@3.16.0/solana?deps=react@18.3.1,react-dom@18.3.1'), 60000, 'privy-solana')
     ]);
     const e = React.createElement;
     function Inner(){
