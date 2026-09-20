@@ -338,12 +338,13 @@ async function mountPrivy(){
   if(!appId || privyMounted) return;
   privyMounted = true;
   $('privyRoot').innerHTML = '<span class="muted" style="font-size:12px">Ładowanie Privy…</span>';
+  const t = (p, ms, label) => Promise.race([p, new Promise((_,rej)=>setTimeout(()=>rej(new Error('timeout: ' + label)), ms))]);
   try{
     const [{default:React},{createRoot},privy,privySol] = await Promise.all([
-      import('https://esm.sh/react@18.3.1'),
-      import('https://esm.sh/react-dom@18.3.1/client'),
-      import('https://esm.sh/@privy-io/react-auth@3.16.0'),
-      import('https://esm.sh/@privy-io/react-auth@3.16.0/solana')
+      t(import('https://esm.sh/react@18.3.1'), 25000, 'react'),
+      t(import('https://esm.sh/react-dom@18.3.1/client'), 25000, 'react-dom'),
+      t(import('https://esm.sh/@privy-io/react-auth@3.16.0'), 45000, 'privy'),
+      t(import('https://esm.sh/@privy-io/react-auth@3.16.0/solana'), 45000, 'privy-solana')
     ]);
     const e = React.createElement;
     function Inner(){
@@ -374,7 +375,7 @@ async function mountPrivy(){
     createRoot($('privyRoot')).render(e(App));
     $('privyRoot').insertAdjacentHTML('beforebegin','<div class="ok" style="margin-top:8px">Privy gotowe — kliknij „Otwórz login Privy”.</div>');
   }catch(err){
-    $('privyRoot').innerHTML = '<div class="err">Privy nie załadowało się ('+esc(err.message)+'). Użyj Phantom albo wklej adres ręcznie.</div>';
+    $('privyRoot').innerHTML = '<div class="err">Privy nie załadowało się ('+esc(err.stack || err.message)+'). Użyj Phantom albo wklej adres ręcznie.</div>';
     privyMounted = false;
   }
 }
