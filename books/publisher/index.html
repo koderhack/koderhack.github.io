@@ -2,345 +2,66 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ReadProof — Publisher Panel (Devnet)</title>
-<meta name="description" content="ReadProof Publisher — fund reward pool (Solana Devnet USDC/SOL), upload book server-only, ISBN + QR for phone challenge."/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>ReadProof — Publisher</title>
+<meta name="robots" content="noindex,nofollow"/>
 <style>
-:root{--burgundy:#6b1d2a;--parchment:#fdf6e3;--gold:#c9a86a;--ink:#1a1a1a;--muted:#6b7280;--ok:#16a34a;--card:#fffaf0;--border:#e8dcc0}
-*{box-sizing:border-box}body{margin:0;font-family: -apple-system,BlinkMacSystemFont,"SF Pro",system-ui,sans-serif;background:var(--parchment);color:var(--ink);line-height:1.5}
-a{color:var(--burgundy)}
-header{background:var(--burgundy);color:var(--parchment);padding:18px 16px;position:sticky;top:0;z-index:10;border-bottom:3px solid var(--gold)}
-header h1{margin:0;font-size:22px;letter-spacing:.3px}
-header p{margin:4px 0 0;opacity:.9;font-size:13px}
-.wrap{max-width:1040px;margin:0 auto;padding:18px 16px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin:14px 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.card h2{margin:0 0 8px;font-size:18px;color:var(--burgundy)}
-.card h3{margin:12px 0 6px;font-size:15px}
-label{font-size:13px;color:var(--muted);display:block;margin:8px 0 4px}
-input,textarea,select{width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;background:#fff;font-size:14px}
-textarea{min-height:110px;resize:vertical}
-button{padding:10px 14px;border-radius:10px;border:1px solid var(--burgundy);background:var(--burgundy);color:#fff;font-weight:600;cursor:pointer}
-button.ghost{background:#fff;color:var(--burgundy)}
-button:disabled{opacity:.5;cursor:not-allowed}
-.row{display:flex;gap:10px;flex-wrap:wrap}
-.row > *{flex:1 1 200px}
-.badge{display:inline-block;padding:3px 8px;border-radius:999px;background:var(--gold);color:var(--burgundy);font-size:12px;font-weight:700}
-.mono{font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12px;word-break:break-all}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
-.kpi{display:flex;gap:8px;align-items:center;font-size:13px}
-.kpi b{color:var(--burgundy)}
-.notice{background:#fff7e6;border:1px solid #f0d9a0;padding:10px 12px;border-radius:10px;font-size:13px}
-.qr{width:180px;height:180px;border:1px solid var(--border);border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.footer{font-size:12px;color:var(--muted);padding:12px 0;border-top:1px solid var(--border);margin-top:18px}
-.status{font-size:13px;padding:8px 10px;border-radius:8px;background:#f3f4f6}
-.ok{color:var(--ok)} .err{color:#b91c1c}
-.small{font-size:12px;color:var(--muted)}
-hr{border:none;border-top:1px solid var(--border);margin:12px 0}
+:root{--bg:#f4efe8;--card:#fff;--ink:#1c1917;--muted:#78716c;--brand:#6b1d2a;--brand2:#8b2e3c;--line:#e7e0d6;--ok:#166534;--bad:#991b1b}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+.shell{min-height:100dvh;display:flex;flex-direction:column;max-width:480px;margin:0 auto}
+.top{padding:18px 20px 8px}
+.brand{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);font-weight:700}
+.progress{display:flex;gap:6px;margin:14px 0 4px}
+.progress i{flex:1;height:4px;border-radius:99px;background:var(--line)}
+.progress i.on{background:var(--brand)}
+.step-label{font-size:.85rem;color:var(--muted);margin-top:8px}
+.main{flex:1;padding:8px 20px 24px;display:flex;flex-direction:column}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 20px;box-shadow:0 8px 24px rgba(28,25,23,.05);flex:1;display:flex;flex-direction:column}
+.card h1{margin:0 0 8px;font-size:1.55rem;line-height:1.2;font-weight:700}
+.card .help{margin:0 0 20px;color:var(--muted);font-size:.95rem;line-height:1.4}
+label{display:block;font-size:.8rem;color:var(--muted);margin:0 0 6px;font-weight:600}
+input,textarea,select{width:100%;padding:14px 14px;border:1px solid var(--line);border-radius:12px;font-size:1.05rem;background:#fff;color:var(--ink)}
+input:focus,textarea:focus,select:focus{outline:2px solid rgba(107,29,42,.25);border-color:var(--brand)}
+textarea{min-height:160px;resize:vertical}
+.field{margin-bottom:4px}
+.opts{display:grid;gap:10px;margin-top:4px}
+.opt{display:block;width:100%;text-align:left;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:#fff;font-size:1rem;font-weight:600;cursor:pointer;color:var(--ink)}
+.opt:hover,.opt.on{border-color:var(--brand);background:#fdf6f7}
+.opt small{display:block;font-weight:500;color:var(--muted);margin-top:4px;font-size:.85rem}
+.foot{padding:12px 20px calc(16px + env(safe-area-inset-bottom));display:flex;gap:10px;background:linear-gradient(180deg,transparent,var(--bg) 30%)}
+.foot button{flex:1;border:none;border-radius:14px;padding:15px 12px;font-size:1rem;font-weight:700;cursor:pointer}
+.btn-back{background:#fff;color:var(--ink);border:1px solid var(--line)!important}
+.btn-next{background:var(--brand);color:#fff}
+.btn-next:disabled{opacity:.4;cursor:not-allowed}
+.msg{margin-top:14px;padding:12px;border-radius:12px;font-size:.9rem;display:none}
+.msg.ok{display:block;background:#ecfdf5;color:var(--ok)}
+.msg.err{display:block;background:#fef2f2;color:var(--bad)}
+.addr{font-family:ui-monospace,Menlo,monospace;font-size:.8rem;word-break:break-all;background:#faf7f2;padding:10px 12px;border-radius:10px;margin-top:12px}
+.hidden{display:none!important}
+.file{margin-top:10px}
+.summary{list-style:none;padding:0;margin:0}
+.summary li{padding:10px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.summary li span{display:block;color:var(--muted);font-size:.8rem}
+.qr{margin-top:16px;text-align:center}
+.qr img{width:160px;height:160px;border-radius:16px;border:1px solid var(--line);background:#fff}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap" style="padding:0">
-    <h1>📚 ReadProof — Publisher Panel <span class="badge">Devnet ONLY</span></h1>
-    <p>Connect Phantom (Devnet) → fund USDC/SOL pool → upload book <em>server-only</em> (never full book on-chain) → ISBN + QR → phone challenge → proof. FREE model, no Google hosting.</p>
+<div class="shell">
+  <div class="top">
+    <div class="brand">ReadProof</div>
+    <div class="progress" id="progress"></div>
+    <div class="step-label" id="stepLabel"></div>
   </div>
-</header>
-<div class="wrap">
-
-  <div class="card">
-    <h2>⚙️ Backend</h2>
-    <div class="row">
-      <div><label>Backend URL (frog)</label><input id="backendUrl" value="http://frog02.mikr.us:32287" placeholder="http://frog02.mikr.us:32287"/></div>
-      <div><label>Health</label><div id="health" class="status">checking…</div></div>
-    </div>
-    <div class="row" style="margin-top:10px">
-      <button id="btnHealth">Check health</button>
-      <button class="ghost" id="btnClear">Clear local</button>
-      <span class="small">CORS allowed: <span class="mono">frog02.mikr.us:32287</span> + github.io. Privacy: wallet+book+chapter+duration+proofHash only.</span>
-    </div>
-    <div id="privacyBlurb" class="notice" style="margin-top:10px"></div>
+  <div class="main">
+    <div class="card" id="card"></div>
+    <div class="msg" id="msg"></div>
   </div>
-
-  <div class="card">
-    <h2>👛 1 — Connect Phantom (Solana Devnet)</h2>
-    <div class="row">
-      <button id="btnConnect">Connect Phantom Devnet</button>
-      <button class="ghost" id="btnDisconnect">Disconnect</button>
-    </div>
-    <div style="margin-top:10px" class="status" id="walletStatus">Not connected — install <a href="https://phantom.app/" target="_blank">Phantom</a> and switch to Devnet (Settings → Developer → Change Network).</div>
-    <div class="kpi"><span>Wallet:</span> <b id="walletAddr" class="mono">—</b></div>
-    <div class="kpi"><span>Network:</span> <b>Devnet — USDC mint 4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU</b> • faucet: <a href="https://faucet.solana.com" target="_blank">SOL</a> / <a href="https://faucet.circle.com" target="_blank">USDC</a></div>
-    <p class="small">Devnet ONLY — no real money. <span id="solConfig"></span></p>
-  </div>
-
-  <div class="card">
-    <h2>📖 2 — Create campaign (ISBN typed)</h2>
-    <div class="row">
-      <div><label>Title *</label><input id="cTitle" placeholder="e.g. Przygoda w krainie Oz — wydanie szkolne"/></div>
-      <div><label>Author</label><input id="cAuthor" placeholder="L. Frank Baum"/></div>
-    </div>
-    <div class="row">
-      <div><label>ISBN (typed, 10 or 13 digits) *</label><input id="cIsbn" placeholder="9780141439761"/></div>
-      <div><label>Reward per proof</label><input id="cReward" type="number" value="5" min="1" max="100"/></div>
-      <div><label>Currency (Devnet)</label><select id="cCurrency"><option value="USDC" selected>USDC (Devnet)</option><option value="SOL">SOL (Devnet)</option></select></div>
-    </div>
-    <label>Description</label><textarea id="cDesc" placeholder="Short blurb — will be shown in phone app catalog."></textarea>
-    <label>Cover URL (optional)</label><input id="cCover" placeholder="https://covers.openlibrary.org/b/isbn/9780141439761-L.jpg"/>
-    <div class="row" style="margin-top:10px">
-      <button id="btnCreate">Create campaign</button>
-      <span class="small">Publisher wallet auto-filled from Phantom. ISBN typed → QR &amp; phone deep link. Book content uploaded next step (server-only).</span>
-    </div>
-    <div id="createOut" class="status" style="display:none;margin-top:10px"></div>
-  </div>
-
-  <div class="card">
-    <h2>📤 3 — Upload book content (server-only, never on-chain)</h2>
-    <p class="small">Full text stays on server (<span class="mono">./texts/campaign_*.txt</span>). On-chain only <span class="mono">proofHash</span> + wallet + score + duration. Min 100 chars.</p>
-    <label>Campaign ID (camp-...)</label><input id="upCampId" placeholder="camp-xxxx"/>
-    <label>Book text (paste) — or choose file below</label>
-    <textarea id="upText" placeholder="Paste full chapter / book text here…"></textarea>
-    <div class="row"><input type="file" id="upFile" accept=".txt,.md"/><span class="small">File → auto-fills textarea</span></div>
-    <div class="row" style="margin-top:10px">
-      <button id="btnUpload">Upload content</button>
-      <button class="ghost" id="btnPreview">Preview stored</button>
-    </div>
-    <div id="uploadOut" class="status" style="display:none;margin-top:10px"></div>
-  </div>
-
-  <div class="card">
-    <h2>💰 4 — Fund reward pool (Devnet USDC/SOL)</h2>
-    <p class="small">Pool lives on backend; reward paid per verified proof (3-5/5). Provide real Devnet txSignature if you sent USDC/SOL via Phantom, otherwise mock Devnet tx is stored.</p>
-    <div class="row">
-      <div><label>Campaign ID</label><input id="fCampId" placeholder="camp-xxxx"/></div>
-      <div><label>Amount</label><input id="fAmount" type="number" value="10" min="1"/></div>
-      <div><label>Currency</label><select id="fCurrency"><option value="USDC">USDC Devnet</option><option value="SOL">SOL Devnet</option></select></div>
-    </div>
-    <label>Tx Signature (optional — paste from Phantom / explorer)</label><input id="fTx" placeholder="e.g. 3k4... (devnet) — leave empty for mock"/>
-    <div class="row" style="margin-top:10px">
-      <button id="btnFund">Fund pool</button>
-      <button class="ghost" id="btnFunds">View funds</button>
-    </div>
-    <div id="fundOut" class="status" style="display:none;margin-top:10px"></div>
-  </div>
-
-  <div class="card">
-    <h2>🔗 5 — ISBN + QR / Code for phone</h2>
-    <div class="row">
-      <div><label>Campaign ID</label><input id="qrCampId" placeholder="camp-xxxx"/></div>
-      <div style="flex:0 0 120px"><label>&nbsp;</label><button id="btnQR">Generate QR</button></div>
-      <div style="flex:0 0 140px"><label>&nbsp;</label><button class="ghost" id="btnCode">Get typed code</button></div>
-    </div>
-    <div id="qrOut" style="display:none;margin-top:12px" class="row">
-      <div class="qr"><img id="qrImg" alt="QR" style="width:100%;height:100%;object-fit:contain"/></div>
-      <div style="flex:1">
-        <div class="kpi"><span>Deep link:</span> <a id="qrUrl" href="#" target="_blank" class="mono"></a></div>
-        <div class="kpi"><span>Phone scheme:</span> <span id="qrScheme" class="mono"></span></div>
-        <div class="kpi"><span>ISBN typed:</span> <b id="qrIsbn" class="mono"></b></div>
-        <div class="kpi"><span>Typed code:</span> <b id="qrCode" class="mono"></b> <button class="ghost" style="padding:4px 8px;font-size:12px" id="btnCopy">Copy</button></div>
-        <p class="small">Phone flow: scan QR or type ISBN/code in ReadProof iOS app → opens campaign → Start Challenge (5 Qs) → Jev verifies → proof + explorer link (Devnet).</p>
-        <div id="qrMeta" class="mono small"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>📚 Campaigns</h2>
-    <div class="row">
-      <button id="btnList">Refresh list</button>
-      <input id="searchIsbn" placeholder="Filter by ISBN / publisher wallet" style="flex:1"/>
-      <button class="ghost" id="btnLookup">Lookup ISBN</button>
-    </div>
-    <div id="campaigns" class="grid" style="margin-top:12px"></div>
-    <div id="lookupOut" class="status" style="display:none;margin-top:10px"></div>
-  </div>
-
-  <div class="card">
-    <h2>🧪 Demo — end-to-end (publisher funds → upload → QR → phone → proof)</h2>
-    <ol style="font-size:14px">
-      <li>Set Backend URL to <span class="mono">http://frog02.mikr.us:32287</span> (or local <span class="mono">http://127.0.0.1:32289</span>) → Check health.</li>
-      <li>Connect Phantom → switch to <b>Devnet</b>.</li>
-      <li>Create campaign with ISBN <span class="mono">9780141439761</span> → copy campaign ID.</li>
-      <li>Upload book content (paste ~2k chars) → verify hash shown = server-only, never on-chain.</li>
-      <li>Fund pool: 10 USDC Devnet (mock or real txSignature) → pool shows <span class="mono">10 USDC (Devnet)</span> + explorer link.</li>
-      <li>Generate QR → scan with phone camera or type ISBN in app → <span class="mono">readproof://campaign/&lt;id&gt;?isbn=…</span>.</li>
-      <li>Phone: <span class="mono">POST /api/publisher/campaigns/:id/start</span> with walletAddress → 5 challenges → answer → <span class="mono">POST /api/sessions/:id/answer</span> + <span class="mono">/complete</span> → proofHash + <a href="#" onclick="return false">explorer devnet</a>.</li>
-    </ol>
-    <details><summary>API routes</summary>
-      <pre class="mono" style="white-space:pre-wrap;background:#fff;padding:10px;border-radius:8px;border:1px solid var(--border)">GET  /health
-GET  /api/privacy  /api/config  /api/solana/config
-POST /api/users  {walletAddress, displayName}  — user accounts
-GET  /api/users/:wallet  GET /api/users
-POST /api/publisher/campaigns  {publisherWallet,title,author,isbn,description,rewardPerProof,currency}
-GET  /api/publisher/campaigns?isbn=&publisherWallet=&status=
-GET  /api/publisher/campaigns/:id
-GET  /api/publisher/campaigns/:id/qr  → {url, scheme, qrPngUrl}
-GET  /api/publisher/campaigns/:id/code → typed ISBN / short code
-GET  /api/publisher/lookup?isbn=…  → typed ISBN search
-POST /api/publisher/campaigns/:id/content  {text}  — server-only, hash only on-chain
-GET  /api/publisher/campaigns/:id/content  → preview 2k
-POST /api/publisher/campaigns/:id/fund  {publisherWallet,amount,currency,txSignature?} — Devnet mock or real
-GET  /api/publisher/campaigns/:id/funds
-POST /api/publisher/campaigns/:id/start  {walletAddress} → session + 5 challenges (FREE LLM)
-POST /api/sessions/:id/answer  POST /api/sessions/:id/complete → proofHash + explorerDevnet
-GET  /api/books  GET /api/books/:id/chapters/:cid/challenge</pre>
-    </details>
-  </div>
-
-  <div class="footer">
-    <b>Privacy</b>: ReadProof stores ONLY walletAddress, bookId, chapterId, session_start/end, reading_duration, proof_hash, verification_version, challengeIds. <b>NEVER on-chain</b>: book full text, answers, prompts. Book stays server-only (<span class="mono">./texts/campaign_*.txt</span>). Solana <b>Devnet ONLY</b> (mock or faucet USDC <span class="mono">4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU</span> + SOL). Free LLM routing only, no Google hosting. CORS: frog02.mikr.us:32287 → GitHub Pages. Code: <a href="https://github.com/koderhack/readproof" target="_blank">readproof</a> + <a href="https://github.com/koderhack/koderhack.github.io" target="_blank">koderhack.github.io</a>.
-    <br/>Live: <span class="mono">https://koderhack.github.io/books/publisher/</span> • Backend: <span class="mono" id="footerBackend">http://frog02.mikr.us:32287</span>
+  <div class="foot">
+    <button type="button" class="btn-back" id="btnBack"></button>
+    <button type="button" class="btn-next" id="btnNext"></button>
   </div>
 </div>
-<script>
-const $ = id=>document.getElementById(id);
-const LS_BACKEND='readproof_backend';
-function backend(){ const v=$('backendUrl').value.trim().replace(/\/$/,''); localStorage.setItem(LS_BACKEND,v); $('footerBackend').textContent=v; return v; }
-function api(p){ return backend()+p }
-function show(el, msg, ok){ el.style.display='block'; el.innerHTML=msg; el.style.background= ok? '#ecfdf5' : '#fef2f2'; el.style.border='1px solid '+(ok?'#a7f3d0':'#fecaca') }
-async function jfetch(url, opts={}){
-  const r = await fetch(url, { ...opts, headers:{'Content-Type':'application/json', ...(opts.headers||{})} });
-  const t = await r.text(); let j; try{ j=JSON.parse(t)}catch{ j={raw:t} }
-  if(!r.ok) throw Object.assign(new Error(j.error||t||r.statusText),{status:r.status, body:j});
-  return j;
-}
-async function checkHealth(){
-  const u = api('/health');
-  $('health').textContent='checking '+u+'…';
-  try{
-    const j = await jfetch(u);
-    $('health').innerHTML = `<span class="ok">✅ ${j.service} :${j.port} books=${j.books} jev=${j.jevTypesafe} <span class="mono">${j.privacy}</span></span>`;
-    $('privacyBlurb').textContent = j.privacy + ' • CORS '+ (j.cors||[]).join(', ');
-    const pc = await jfetch(api('/api/solana/config'));
-    $('solConfig').textContent = `— ${pc.cluster} ${pc.usdcMint.slice(0,8)}… ${pc.realPayoutReady?'real payout':'mock payout'}`;
-  }catch(e){ $('health').innerHTML = `<span class="err">❌ ${e.message}</span> <span class="mono">${u}</span>`; $('privacyBlurb').textContent = 'Privacy: wallet, book, chapter, duration, proof hash only. Devnet only. Book server-only.' }
-}
-$('btnHealth').onclick=checkHealth;
-$('btnClear').onclick=()=>{ localStorage.clear(); location.reload();}
-(function init(){ const saved=localStorage.getItem(LS_BACKEND); if(saved) $('backendUrl').value=saved; checkHealth(); jfetch(api('/api/privacy')).then(j=>{$('privacyBlurb').textContent=j.privacy}).catch(()=>{}); listCampaigns(); const params=new URLSearchParams(location.search); const cid=params.get('campaign'); if(cid){ $('qrCampId').value=cid; $('upCampId').value=cid; $('fCampId').value=cid } })();
-
-// Phantom
-let wallet=null;
-async function connectPhantom(){
-  const sol = window.solana;
-  if(!sol || !sol.isPhantom){ $('walletStatus').innerHTML='Phantom not found — <a href="https://phantom.app/" target="_blank">install Phantom</a>'; return }
-  try{
-    const r = await sol.connect();
-    wallet = r.publicKey.toString();
-    $('walletAddr').textContent=wallet;
-    $('walletStatus').innerHTML='<span class="ok">✅ Connected — Devnet</span> PublicKey: <span class="mono">'+wallet+'</span>';
-    $('upCampId').placeholder=wallet.slice(0,8)+'…';
-    // auto-register user
-    try{ await jfetch(api('/api/users'),{method:'POST', body:JSON.stringify({walletAddress:wallet, displayName:'Publisher', role:'publisher'})}); }catch(e){}
-    // update sol config
-    try{ const pc=await jfetch(api('/api/solana/config')); $('solConfig').textContent=`— ${pc.cluster} explorer ${pc.explorerBase}` }catch{}
-  }catch(e){ $('walletStatus').textContent='Connect failed: '+e.message }
-}
-function disconnect(){ wallet=null; $('walletAddr').textContent='—'; $('walletStatus').textContent='Disconnected'; try{ window.solana.disconnect(); }catch{} }
-$('btnConnect').onclick=connectPhantom;
-$('btnDisconnect').onclick=disconnect;
-window.addEventListener('load', ()=>{ if(window.solana && window.solana.isPhantom && window.solana.isConnected){ wallet=window.solana.publicKey?.toString(); if(wallet){ $('walletAddr').textContent=wallet; $('walletStatus').innerHTML='<span class="ok">✅ Already connected</span> <span class="mono">'+wallet+'</span>' } } });
-
-// Create
-$('btnCreate').onclick=async()=>{
-  const publisherWallet = wallet || $('walletAddr').textContent.trim();
-  if(!publisherWallet || publisherWallet==='—') return alert('Connect Phantom first');
-  const body={ publisherWallet, title:$('cTitle').value.trim(), author:$('cAuthor').value.trim(), isbn:$('cIsbn').value.trim(), description:$('cDesc').value.trim(), rewardPerProof: Number($('cReward').value)||5, currency:$('cCurrency').value, coverUrl:$('cCover').value.trim()||undefined };
-  if(!body.title) return alert('title required');
-  try{
-    const j=await jfetch(api('/api/publisher/campaigns'),{method:'POST', body:JSON.stringify(body)});
-    show($('createOut'), `✅ Created <b>${j.campaign.id}</b> ISBN <span class="mono">${j.campaign.isbn||'—'}</span><br>QR url: <a href="${j.campaign.qr.url}" target="_blank" class="mono">${j.campaign.qr.url}</a><br>Scheme: <span class="mono">${j.campaign.qr.scheme}</span><br><span class="mono">${j.privacy.slice(0,120)}…</span>`, true);
-    $('upCampId').value=j.campaign.id; $('fCampId').value=j.campaign.id; $('qrCampId').value=j.campaign.id;
-    listCampaigns();
-  }catch(e){ show($('createOut'), '❌ '+e.message+'<pre class="mono">'+JSON.stringify(e.body||{},null,2)+'</pre>', false) }
-};
-// Upload
-$('upFile').onchange=async(e=>{
-  const f=e.target.files[0]; if(!f) return;
-  const t=await f.text(); $('upText').value=t;
-});
-$('btnUpload').onclick=async()=>{
-  const id=$('upCampId').value.trim(); if(!id) return alert('campaign id required');
-  const text=$('upText').value; if(text.length<100) return alert('text too short (100+)');
-  try{
-    const j=await jfetch(api(`/api/publisher/campaigns/${id}/content`),{method:'POST', body:JSON.stringify({text})});
-    show($('uploadOut'), `✅ Stored ${j.contentLength} chars — hash <span class="mono">${j.bookContentHash}</span> (${j.hashShort}…)<br>${j.note}<br>QR: <span class="mono">${j.qr.url}</span><br><span class="mono">${j.privacy.slice(0,120)}…</span>`, true);
-    listCampaigns();
-  }catch(e){ show($('uploadOut'),'❌ '+e.message, false) }
-};
-$('btnPreview').onclick=async()=>{
-  const id=$('upCampId').value.trim(); if(!id) return alert('id?');
-  try{ const j=await jfetch(api(`/api/publisher/campaigns/${id}/content`)); show($('uploadOut'), `Preview ${j.contentLength} chars hash ${j.bookContentHash.slice(0,16)}…<br><pre style="white-space:pre-wrap;background:#fff;padding:8px;border-radius:8px">${j.preview.slice(0,800)}</pre><br>${j.note}`, true)}catch(e){ show($('uploadOut'),'❌ '+e.message,false)}
-};
-// Fund
-$('btnFund').onclick=async()=>{
-  const id=$('fCampId').value.trim(); if(!id) return alert('id?');
-  const publisherWallet=wallet || $('walletAddr').textContent.trim();
-  if(!publisherWallet||publisherWallet==='—') return alert('Connect Phantom');
-  const body={ publisherWallet, amount: Number($('fAmount').value), currency:$('fCurrency').value, txSignature: $('fTx').value.trim()||undefined };
-  try{ const j=await jfetch(api(`/api/publisher/campaigns/${id}/fund`),{method:'POST', body:JSON.stringify(body)}); show($('fundOut'), `✅ Funded ${j.funded.amount} ${j.funded.currency} — pool <b>${j.rewardPool}</b><br>tx <a href="${j.funded.explorerUrl}" target="_blank" class="mono">${j.funded.txSignature}</a><br>${j.note}<br>USDC mint <span class="mono">${j.usdcMint}</span> Devnet`, true); listCampaigns(); }catch(e){ show($('fundOut'),'❌ '+e.message+'<pre class="mono">'+JSON.stringify(e.body||{},null,2)+'</pre>', false) }
-};
-$('btnFunds').onclick=async()=>{
-  const id=$('fCampId').value.trim(); if(!id) return alert('id?');
-  try{ const j=await jfetch(api(`/api/publisher/campaigns/${id}/funds`)); show($('fundOut'), `Funds ${j.count} for ${j.campaignId}<br><pre class="mono">${JSON.stringify(j.funds.slice(0,3),null,2)}</pre>`, true)}catch(e){ show($('fundOut'),'❌ '+e.message,false)}
-};
-// QR / code
-$('btnQR').onclick=async()=>{
-  const id=$('qrCampId').value.trim(); if(!id) return alert('id?');
-  try{
-    const j=await jfetch(api(`/api/publisher/campaigns/${id}/qr`));
-    $('qrOut').style.display='flex';
-    $('qrImg').src=j.qrPngUrl;
-    $('qrUrl').textContent=j.url; $('qrUrl').href=j.url;
-    $('qrScheme').textContent=j.scheme;
-    $('qrIsbn').textContent=j.isbn||'—';
-    $('qrMeta').textContent=j.note;
-    // fetch code
-    try{ const c=await jfetch(api(`/api/publisher/campaigns/${id}/code`)); $('qrCode').textContent=c.code }catch{ $('qrCode').textContent=j.isbn||id }
-  }catch(e){ alert(e.message)}
-};
-$('btnCode').onclick=async()=>{
-  const id=$('qrCampId').value.trim(); if(!id) return alert('id?');
-  try{ const j=await jfetch(api(`/api/publisher/campaigns/${id}/code`)); $('qrOut').style.display='flex'; $('qrCode').textContent=j.code; $('qrIsbn').textContent=j.isbn||'—'; $('qrUrl').textContent=j.deepLink; $('qrScheme').textContent=j.scheme; $('qrImg').src=`https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(j.deepLink)}`; }catch(e){ alert(e.message)}
-};
-$('btnCopy').onclick=()=>{ const t=$('qrCode').textContent; navigator.clipboard.writeText(t); alert('Copied '+t) };
-
-// List campaigns
-async function listCampaigns(){
-  const q=$('searchIsbn').value.trim();
-  let url=api('/api/publisher/campaigns');
-  if(q) url+='?isbn='+encodeURIComponent(q);
-  // if q looks like wallet, try publisherWallet
-  if(q && q.length>30 && !q.match(/^\d/)) url=api('/api/publisher/campaigns?publisherWallet='+encodeURIComponent(q));
-  try{
-    const j=await jfetch(url);
-    const el=$('campaigns'); el.innerHTML='';
-    if(!j.campaigns.length) el.innerHTML='<div class="small">No campaigns yet — create one above.</div>';
-    for(const c of j.campaigns){
-      const div=document.createElement('div'); div.className='card'; div.style.margin='0';
-      div.innerHTML=`
-        <div style="display:flex;justify-content:space-between;align-items:center"><b>${c.title}</b><span class="badge">${c.status}</span></div>
-        <div class="small mono">${c.id} • ISBN ${c.isbn||'—'} • ${c.author||''}</div>
-        <div class="small">${c.description||''}</div>
-        <div class="kpi"><span>Pool:</span> <b>${c.rewardPool}</b> • per proof ${c.rewardPerProof} ${c.currency}</div>
-        <div class="kpi"><span>QR:</span> <a href="${c.qr.url}" target="_blank" class="mono" style="font-size:11px">${c.qr.url}</a></div>
-        <div class="kpi"><span>Scheme:</span> <span class="mono" style="font-size:11px">${c.qr.scheme}</span></div>
-        <div class="small mono">${c.contentNote||''}</div>
-        <div class="row" style="margin-top:8px">
-          <button class="ghost" onclick="document.getElementById('upCampId').value='${c.id}';document.getElementById('fCampId').value='${c.id}';document.getElementById('qrCampId').value='${c.id}';window.scrollTo(0,400)">Select</button>
-          <button class="ghost" onclick="navigator.clipboard.writeText('${c.qr.url}');alert('Copied')">Copy QR URL</button>
-          <a href="${c.qr.url.replace('https://api.qrserver.com','https://api.qrserver.com')}" target="_blank" class="small">Open link</a>
-        </div>
-        <div class="small" style="margin-top:6px">Explorer: <a href="https://explorer.solana.com/address/${c.publisherWallet||''}?cluster=devnet" target="_blank" class="mono">${(c.publisherWallet||'').slice(0,12)}… devnet</a></div>
-      `;
-      el.appendChild(div);
-    }
-  }catch(e){ $('campaigns').innerHTML='<div class="err">Failed: '+e.message+'</div>'}
-}
-$('btnList').onclick=listCampaigns;
-$('btnLookup').onclick=async()=>{
-  const q=$('searchIsbn').value.trim(); if(!q) return alert('type ISBN');
-  try{ const j=await jfetch(api('/api/publisher/lookup?isbn='+encodeURIComponent(q))); $('lookupOut').style.display='block'; if(j.found) $('lookupOut').innerHTML=`✅ Found <b>${j.campaign.title}</b> ${j.campaign.id} ISBN ${j.campaign.isbn} <a href="${j.campaign.qr?.url||''}" target="_blank">open</a> <span class="mono">${JSON.stringify(j.campaign).slice(0,200)}…</span>`; else $('lookupOut').innerHTML=`Not found for <span class="mono">${q}</span> — suggestions: ${ (j.suggestions||[]).map(s=>s.title).join(', ')||'—'}` }catch(e){ $('lookupOut').style.display='block'; $('lookupOut').textContent='❌ '+e.message }
-};
-</script>
+<script src="./app.js"></script>
 </body>
 </html>
