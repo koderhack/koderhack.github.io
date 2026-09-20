@@ -19,15 +19,15 @@
 <style>
 :root{
   --bg:#F6EEDA; --bg2:#FDF6E3; --card:#FFFBEB; --ink:#221A12; --muted:#8A7D6B;
-  --line:#E3D3AC; --line2:#D5C092; --primary:#7C1C1C; --primary2:#5A1212;
+  --line:#E3D3AC; --line2:#D5C092; --primary:#175C3A; --primary2:#0C3B24;
   --gold:#C5A15A; --gold2:#E9CE8F; --success:#1E7A4C; --danger:#B3261E;
-  --radius:18px; --shadow:0 10px 30px rgba(124,28,28,.10);
+  --radius:18px; --shadow:0 10px 30px rgba(23,92,58,.10);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:
   radial-gradient(1100px 300px at 50% -80px, rgba(197,161,90,.25), transparent 70%),
-  repeating-linear-gradient(0deg, transparent 0 27px, rgba(124,28,28,.045) 27px 28px),
+  repeating-linear-gradient(0deg, transparent 0 27px, rgba(23,92,58,.045) 27px 28px),
   var(--bg);
   color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.6}
 a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}
@@ -65,7 +65,7 @@ a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}
 .muted{color:var(--muted)} .mono{font-family:"IBM Plex Mono",monospace}
 .ic{width:1.1em;height:1.1em;vertical-align:-.18em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .btn{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#fff;padding:10px 16px;border-radius:12px;font-weight:700;font-size:14px;border:0;cursor:pointer;transition:transform .12s ease, box-shadow .12s ease}
-.btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(124,28,28,.25);text-decoration:none;color:#fff}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(23,92,58,.25);text-decoration:none;color:#fff}
 .btn.ghost{background:#fff;color:var(--primary);border:1px solid var(--line)}
 .btn.gold{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#241505}
 .btn.dark{background:#221A12;color:#FFE9B0;border:1px solid var(--gold)}
@@ -86,7 +86,7 @@ input,textarea,select{width:100%;font:inherit;padding:10px 12px;border:1px solid
 textarea{min-height:90px;resize:vertical}
 label{font-size:12px;font-weight:600;color:var(--muted);display:block;margin:10px 0 4px}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.err{background:#FDECEC;border:1px solid #E8AFAF;color:#7C1C1C;border-radius:10px;padding:10px 12px;font-size:13px}
+.err{background:#FDECEC;border:1px solid #E8AFAF;color:#175C3A;border-radius:10px;padding:10px 12px;font-size:13px}
 .ok{background:#E9F6EF;border:1px solid #9ED3B4;color:#14532D;border-radius:10px;padding:10px 12px;font-size:13px}
 .hidden{display:none!important}
 .qrbox{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
@@ -156,9 +156,9 @@ label{font-size:12px;font-weight:600;color:var(--muted);display:block;margin:10p
   </div>
   <div>
     <svg class="seal" viewBox="0 0 200 200" role="img" aria-label="Pieczęć ReadProof">
-      <circle cx="100" cy="100" r="92" fill="#8E1F1F" stroke="#C5A15A" stroke-width="5"/>
+      <circle cx="100" cy="100" r="92" fill="#175C3A" stroke="#C5A15A" stroke-width="5"/>
       <circle cx="100" cy="100" r="74" fill="none" stroke="#E9CE8F" stroke-width="2" stroke-dasharray="4 5"/>
-      <circle cx="100" cy="100" r="58" fill="#5A1212" stroke="#E9CE8F" stroke-width="2"/>
+      <circle cx="100" cy="100" r="58" fill="#0C3B24" stroke="#E9CE8F" stroke-width="2"/>
       <text x="100" y="88" text-anchor="middle" fill="#E9CE8F" font-family="Fraunces,serif" font-size="26" font-weight="800">RP</text>
       <text x="100" y="110" text-anchor="middle" fill="#E9CE8F" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="2">SIGILLUM</text>
       <text x="100" y="126" text-anchor="middle" fill="#C5A15A" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="1.5">DEVNET</text>
@@ -286,7 +286,7 @@ label{font-size:12px;font-weight:600;color:var(--muted);display:block;margin:10p
 <footer class="footer"><div class="wrap">
   <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">
     <div>© 2026 ReadProof — Panel wydawcy • Solana Devnet • <a href="https://github.com/koderhack/readproof/blob/main/PUBLISHER_RULES.md" target="_blank">Zasady wydawców</a></div>
-    <div class="mono">kacpersikora.pages.dev/publisher/ • v2 privy</div>
+    <div class="mono">kacpersikora.pages.dev/publisher/ • v3 green</div>
   </div>
 </div></footer>
 
