@@ -8,6 +8,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,600;9..144,0,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="importmap">
+{"imports":{
+  "react": "https://esm.sh/react@18.3.1",
+  "react-dom": "https://esm.sh/react-dom@18.3.1",
+  "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+  "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime"
+}}
+</script>
 <style>
 :root{
   --bg:#F6EEDA; --bg2:#FDF6E3; --card:#FFFBEB; --ink:#221A12; --muted:#8A7D6B;
@@ -340,10 +348,10 @@ async function mountPrivy(){
   $('privyRoot').innerHTML = '<span class="muted" style="font-size:12px">Ładowanie Privy…</span>';
   try{
     const [{default:React},{createRoot},privy,privySol] = await Promise.all([
-      import('https://esm.sh/react@18.3.1'),
-      import('https://esm.sh/react-dom@18.3.1/client'),
-      import('https://esm.sh/@privy-io/react-auth@3.16.0?external=react,react-dom'),
-      import('https://esm.sh/@privy-io/react-auth@3.16.0/solana?external=react,react-dom')
+      import('react'),
+      import('react-dom/client'),
+      import('https://esm.sh/@privy-io/react-auth@3.16.0?external=react,react-dom,react/jsx-runtime'),
+      import('https://esm.sh/@privy-io/react-auth@3.16.0/solana?external=react,react-dom,react/jsx-runtime')
     ]);
     const e = React.createElement;
     function Inner(){
